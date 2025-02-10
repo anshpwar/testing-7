@@ -1,0 +1,18 @@
+{
+  "claims": {
+    "release": "1.0.0"
+  },
+  "env": "n/a",
+  "finished_at": "2025-02-10T15:20:00+0000",
+  "kind": "origin-claim",
+  "patch_id": "1a7ceff8b47f50b04af7dc0e6c71543a8446a820",
+  "run_id": "prv-r07-0003",
+  "schema_version": 1,
+  "source": "fixture-bot",
+  "started_at": "2025-02-10T15:20:00+0000",
+  "status": "PASSED",
+  "subject_commit": "3dd2ea7661a0376da18ca1a7a9ab88bce6250a7d",
+  "suite": "n/a",
+  "suite_digest": "62e939758c8ffd36f2db645aecae4f1eb442aac7",
+  "synthetic": true
+}
