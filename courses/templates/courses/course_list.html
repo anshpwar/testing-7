@@ -1,0 +1,8 @@
+<h1>Courses</h1>
+<ul>
+{% for course in courses %}
+  <li><a href="/courses/{{ course.code }}/">{{ course.code }}</a> {{ course.title }} ({{ course.credits }} credits)</li>
+{% empty %}
+  <li>No courses yet.</li>
+{% endfor %}
+</ul>

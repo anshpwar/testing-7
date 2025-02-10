@@ -1,0 +1,7 @@
+<h1>{{ course.code }}: {{ course.title }}</h1>
+<p>{{ lessons|length }} lessons, {{ total_minutes }} minutes in total.</p>
+<ol>
+{% for lesson in lessons %}
+  <li>{{ lesson.title }} ({{ lesson.minutes }} min)</li>
+{% endfor %}
+</ol>
