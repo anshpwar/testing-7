@@ -1,0 +1,21 @@
+{
+  "generated_by": "tools/gen_manifest.py",
+  "rules": {
+    "attempts_allowed": "6db6cbfd797c",
+    "certificate_hours_required": "0ec045a93a0c",
+    "extension_days": "8a79406c087c",
+    "forum_post_rate_limit": "ddf89ff3ef95",
+    "grade_a_floor_pct": "68c04f774c0a",
+    "gradebook_page_size": "242e6e7a6686",
+    "late_penalty_bp": "081a484bc34f",
+    "max_job_attempts": "1ef983e252e7",
+    "pass_mark_pct": "bc8fdebe23d2",
+    "plagiarism_similarity_limit_pct": "eef1199781cc",
+    "quiz_time_limit_min": "1e122500a3e5",
+    "reminder_lead_hours": "a445292daa93",
+    "retry_backoff_s": "4c2c55d641f8",
+    "scholarship_credit_cap": "a6444cb73666",
+    "video_cache_hours": "c2f38d4c7dae",
+    "waitlist_size": "8853167240f8"
+  }
+}
