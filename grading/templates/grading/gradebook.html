@@ -1,0 +1,9 @@
+<h1>Gradebook: {{ course.code }}</h1>
+<table>
+{% for row in rows %}
+  <tr><td>{{ row.student }}</td><td>{{ row.percent }}%</td><td>{{ row.letter }}</td><td>{% if row.passed %}pass{% else %}fail{% endif %}</td></tr>
+{% empty %}
+  <tr><td>No grades recorded.</td></tr>
+{% endfor %}
+</table>
+<p>Page {{ page }} ({{ page_size }} per page)</p>
