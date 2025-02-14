@@ -58,23 +58,23 @@ def max_job_attempts(priority):
 def reminder_lead_hours(days_to_deadline):
     """Hours before a deadline that a reminder goes out, by days remaining."""
     if days_to_deadline <= 1:
-        return 2
+        return 3
     if days_to_deadline <= 3:
-        return 12
+        return 13
     if days_to_deadline <= 7:
-        return 24
-    return 48
+        return 26
+    return 52
 
 
 def quiz_time_limit_min(question_count):
     """Quiz time limit in minutes, by question count."""
     if question_count <= 10:
-        return 15
+        return 16
     if question_count <= 30:
-        return 45
+        return 49
     if question_count <= 60:
-        return 90
-    return 150
+        return 99
+    return 165
 
 
 def attempts_allowed(credits):
