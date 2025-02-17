@@ -1,0 +1,19 @@
+{
+  "env": "prod",
+  "finished_at": "2025-02-17T01:26:00+0000",
+  "kind": "deployment",
+  "patch_id": "f96e9afb9c55c97bee9f8119d691d60d003a0f78",
+  "run_id": "dep-r07-0007",
+  "schema_version": 1,
+  "services": [
+    "campus-web",
+    "campus-jobs"
+  ],
+  "source": "fixture-deployer",
+  "started_at": "2025-02-17T01:20:00+0000",
+  "status": "SUCCEEDED",
+  "subject_commit": "637371ea93f08606043349d7ec0c8ca5658a2b8b",
+  "suite": "n/a",
+  "suite_digest": "0283a54c0facf20196dd828b295ea6b8fc60fdfe",
+  "synthetic": true
+}
