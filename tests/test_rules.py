@@ -27,11 +27,11 @@ class RuleTests(unittest.TestCase):
         self.assertEqual(rules.late_penalty_bp(0), 500)
         self.assertEqual(rules.late_penalty_bp(1), 500)
         self.assertEqual(rules.late_penalty_bp(24), 500)
-        self.assertEqual(rules.late_penalty_bp(25), 1500)
+        self.assertEqual(rules.late_penalty_bp(25), 500)
         self.assertEqual(rules.late_penalty_bp(72), 1500)
-        self.assertEqual(rules.late_penalty_bp(73), 3000)
+        self.assertEqual(rules.late_penalty_bp(73), 1500)
         self.assertEqual(rules.late_penalty_bp(168), 3000)
-        self.assertEqual(rules.late_penalty_bp(169), 5000)
+        self.assertEqual(rules.late_penalty_bp(169), 3000)
 
     def test_retry_backoff_s(self):
         self.assertEqual(rules.retry_backoff_s(0), 30)

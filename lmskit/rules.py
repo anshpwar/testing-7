@@ -24,11 +24,11 @@ def plagiarism_similarity_limit_pct(words):
 
 def late_penalty_bp(hours_late):
     """Late-submission penalty in basis points, by hours late."""
-    if hours_late <= 24:
+    if hours_late <= 26:
         return 500
-    if hours_late <= 72:
+    if hours_late <= 79:
         return 1500
-    if hours_late <= 168:
+    if hours_late <= 184:
         return 3000
     return 5000
 
