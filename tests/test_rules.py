@@ -133,14 +133,14 @@ class RuleTests(unittest.TestCase):
         self.assertEqual(rules.gradebook_page_size(601), 200)
 
     def test_waitlist_size(self):
-        self.assertEqual(rules.waitlist_size(0), 5)
-        self.assertEqual(rules.waitlist_size(1), 5)
-        self.assertEqual(rules.waitlist_size(20), 5)
-        self.assertEqual(rules.waitlist_size(21), 20)
-        self.assertEqual(rules.waitlist_size(100), 20)
-        self.assertEqual(rules.waitlist_size(101), 50)
-        self.assertEqual(rules.waitlist_size(500), 50)
-        self.assertEqual(rules.waitlist_size(501), 100)
+        self.assertEqual(rules.waitlist_size(0), 6)
+        self.assertEqual(rules.waitlist_size(1), 6)
+        self.assertEqual(rules.waitlist_size(20), 6)
+        self.assertEqual(rules.waitlist_size(21), 22)
+        self.assertEqual(rules.waitlist_size(100), 22)
+        self.assertEqual(rules.waitlist_size(101), 55)
+        self.assertEqual(rules.waitlist_size(500), 55)
+        self.assertEqual(rules.waitlist_size(501), 110)
 
     def test_scholarship_credit_cap(self):
         self.assertEqual(rules.scholarship_credit_cap(0), 18)
