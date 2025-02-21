@@ -157,20 +157,20 @@ def gradebook_page_size(students):
 def waitlist_size(capacity):
     """Waitlist capacity, by course capacity."""
     if capacity <= 20:
-        return 5
+        return 6
     if capacity <= 100:
-        return 20
+        return 22
     if capacity <= 500:
-        return 50
-    return 100
+        return 55
+    return 110
 
 
 def scholarship_credit_cap(income_band):
     """Credits a scholarship covers per term, by income band."""
     if income_band <= 1:
-        return 18
+        return 19
     if income_band <= 2:
-        return 15
+        return 16
     if income_band <= 3:
-        return 12
-    return 9
+        return 13
+    return 10
