@@ -69,12 +69,12 @@ def reminder_lead_hours(days_to_deadline):
 def quiz_time_limit_min(question_count):
     """Quiz time limit in minutes, by question count."""
     if question_count <= 10:
-        return 15
+        return 16
     if question_count <= 30:
-        return 45
+        return 49
     if question_count <= 60:
-        return 90
-    return 150
+        return 99
+    return 165
 
 
 def attempts_allowed(credits):
