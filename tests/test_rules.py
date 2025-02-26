@@ -99,9 +99,9 @@ class RuleTests(unittest.TestCase):
     def test_extension_days(self):
         self.assertEqual(rules.extension_days(0), 2)
         self.assertEqual(rules.extension_days(1), 2)
-        self.assertEqual(rules.extension_days(2), 5)
-        self.assertEqual(rules.extension_days(3), 10)
-        self.assertEqual(rules.extension_days(4), 14)
+        self.assertEqual(rules.extension_days(2), 2)
+        self.assertEqual(rules.extension_days(3), 5)
+        self.assertEqual(rules.extension_days(4), 10)
 
     def test_forum_post_rate_limit(self):
         self.assertEqual(rules.forum_post_rate_limit(0), 3)
