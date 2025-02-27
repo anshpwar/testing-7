@@ -88,13 +88,13 @@ class RuleTests(unittest.TestCase):
         self.assertEqual(rules.grade_a_floor_pct(201), 95)
 
     def test_pass_mark_pct(self):
-        self.assertEqual(rules.pass_mark_pct(0), 50)
-        self.assertEqual(rules.pass_mark_pct(1), 50)
-        self.assertEqual(rules.pass_mark_pct(2), 55)
-        self.assertEqual(rules.pass_mark_pct(3), 55)
-        self.assertEqual(rules.pass_mark_pct(4), 60)
-        self.assertEqual(rules.pass_mark_pct(6), 60)
-        self.assertEqual(rules.pass_mark_pct(7), 65)
+        self.assertEqual(rules.pass_mark_pct(0), 44)
+        self.assertEqual(rules.pass_mark_pct(1), 44)
+        self.assertEqual(rules.pass_mark_pct(2), 49)
+        self.assertEqual(rules.pass_mark_pct(3), 49)
+        self.assertEqual(rules.pass_mark_pct(4), 53)
+        self.assertEqual(rules.pass_mark_pct(6), 53)
+        self.assertEqual(rules.pass_mark_pct(7), 57)
 
     def test_extension_days(self):
         self.assertEqual(rules.extension_days(0), 2)

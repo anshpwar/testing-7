@@ -102,12 +102,12 @@ def grade_a_floor_pct(class_size):
 def pass_mark_pct(credits):
     """Pass mark percentage, by course credits."""
     if credits <= 1:
-        return 50
+        return 44
     if credits <= 3:
-        return 55
+        return 49
     if credits <= 6:
-        return 60
-    return 65
+        return 53
+    return 57
 
 
 def extension_days(need_level):
