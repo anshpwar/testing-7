@@ -34,13 +34,13 @@ class RuleTests(unittest.TestCase):
         self.assertEqual(rules.late_penalty_bp(169), 4375)
 
     def test_retry_backoff_s(self):
-        self.assertEqual(rules.retry_backoff_s(0), 30)
-        self.assertEqual(rules.retry_backoff_s(1), 30)
-        self.assertEqual(rules.retry_backoff_s(2), 300)
-        self.assertEqual(rules.retry_backoff_s(3), 300)
-        self.assertEqual(rules.retry_backoff_s(4), 1800)
-        self.assertEqual(rules.retry_backoff_s(6), 1800)
-        self.assertEqual(rules.retry_backoff_s(7), 7200)
+        self.assertEqual(rules.retry_backoff_s(0), 33)
+        self.assertEqual(rules.retry_backoff_s(1), 33)
+        self.assertEqual(rules.retry_backoff_s(2), 330)
+        self.assertEqual(rules.retry_backoff_s(3), 330)
+        self.assertEqual(rules.retry_backoff_s(4), 1980)
+        self.assertEqual(rules.retry_backoff_s(6), 1980)
+        self.assertEqual(rules.retry_backoff_s(7), 7920)
 
     def test_max_job_attempts(self):
         self.assertEqual(rules.max_job_attempts(0), 10)
