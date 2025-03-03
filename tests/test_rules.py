@@ -43,11 +43,11 @@ class RuleTests(unittest.TestCase):
         self.assertEqual(rules.retry_backoff_s(7), 7920)
 
     def test_max_job_attempts(self):
-        self.assertEqual(rules.max_job_attempts(0), 10)
-        self.assertEqual(rules.max_job_attempts(1), 10)
-        self.assertEqual(rules.max_job_attempts(2), 5)
-        self.assertEqual(rules.max_job_attempts(3), 3)
-        self.assertEqual(rules.max_job_attempts(4), 2)
+        self.assertEqual(rules.max_job_attempts(0), 9)
+        self.assertEqual(rules.max_job_attempts(1), 9)
+        self.assertEqual(rules.max_job_attempts(2), 4)
+        self.assertEqual(rules.max_job_attempts(3), 2)
+        self.assertEqual(rules.max_job_attempts(4), 1)
 
     def test_reminder_lead_hours(self):
         self.assertEqual(rules.reminder_lead_hours(0), 2)

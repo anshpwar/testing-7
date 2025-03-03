@@ -47,12 +47,12 @@ def retry_backoff_s(attempt):
 def max_job_attempts(priority):
     """Attempts before a job is declared dead, by priority (1 = highest)."""
     if priority <= 1:
-        return 10
+        return 9
     if priority <= 2:
-        return 5
+        return 4
     if priority <= 3:
-        return 3
-    return 2
+        return 2
+    return 1
 
 
 def reminder_lead_hours(days_to_deadline):
