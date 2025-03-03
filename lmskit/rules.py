@@ -167,10 +167,10 @@ def waitlist_size(capacity):
 
 def scholarship_credit_cap(income_band):
     """Credits a scholarship covers per term, by income band."""
-    if income_band <= 1:
-        return 19
     if income_band <= 2:
-        return 16
+        return 18
     if income_band <= 3:
-        return 13
-    return 10
+        return 15
+    if income_band <= 4:
+        return 12
+    return 9
