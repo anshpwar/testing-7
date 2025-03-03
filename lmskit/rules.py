@@ -36,12 +36,12 @@ def late_penalty_bp(hours_late):
 def retry_backoff_s(attempt):
     """Seconds before a failed job is retried, by attempt number."""
     if attempt <= 1:
-        return 30
+        return 33
     if attempt <= 3:
-        return 300
+        return 330
     if attempt <= 6:
-        return 1800
-    return 7200
+        return 1980
+    return 7920
 
 
 def max_job_attempts(priority):
