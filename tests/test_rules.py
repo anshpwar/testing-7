@@ -50,13 +50,13 @@ class RuleTests(unittest.TestCase):
         self.assertEqual(rules.max_job_attempts(4), 2)
 
     def test_reminder_lead_hours(self):
-        self.assertEqual(rules.reminder_lead_hours(0), 3)
-        self.assertEqual(rules.reminder_lead_hours(1), 3)
-        self.assertEqual(rules.reminder_lead_hours(2), 13)
-        self.assertEqual(rules.reminder_lead_hours(3), 13)
-        self.assertEqual(rules.reminder_lead_hours(4), 26)
-        self.assertEqual(rules.reminder_lead_hours(7), 26)
-        self.assertEqual(rules.reminder_lead_hours(8), 52)
+        self.assertEqual(rules.reminder_lead_hours(0), 1)
+        self.assertEqual(rules.reminder_lead_hours(1), 1)
+        self.assertEqual(rules.reminder_lead_hours(2), 11)
+        self.assertEqual(rules.reminder_lead_hours(3), 11)
+        self.assertEqual(rules.reminder_lead_hours(4), 21)
+        self.assertEqual(rules.reminder_lead_hours(7), 21)
+        self.assertEqual(rules.reminder_lead_hours(8), 42)
 
     def test_quiz_time_limit_min(self):
         self.assertEqual(rules.quiz_time_limit_min(0), 15)
