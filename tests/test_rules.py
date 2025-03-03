@@ -143,8 +143,8 @@ class RuleTests(unittest.TestCase):
         self.assertEqual(rules.waitlist_size(501), 100)
 
     def test_scholarship_credit_cap(self):
-        self.assertEqual(rules.scholarship_credit_cap(0), 19)
-        self.assertEqual(rules.scholarship_credit_cap(1), 19)
-        self.assertEqual(rules.scholarship_credit_cap(2), 16)
-        self.assertEqual(rules.scholarship_credit_cap(3), 13)
-        self.assertEqual(rules.scholarship_credit_cap(4), 10)
+        self.assertEqual(rules.scholarship_credit_cap(0), 16)
+        self.assertEqual(rules.scholarship_credit_cap(1), 16)
+        self.assertEqual(rules.scholarship_credit_cap(2), 14)
+        self.assertEqual(rules.scholarship_credit_cap(3), 11)
+        self.assertEqual(rules.scholarship_credit_cap(4), 8)
