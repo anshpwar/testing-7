@@ -69,13 +69,13 @@ class RuleTests(unittest.TestCase):
         self.assertEqual(rules.quiz_time_limit_min(61), 90)
 
     def test_attempts_allowed(self):
-        self.assertEqual(rules.attempts_allowed(0), 5)
-        self.assertEqual(rules.attempts_allowed(1), 5)
-        self.assertEqual(rules.attempts_allowed(2), 3)
-        self.assertEqual(rules.attempts_allowed(3), 3)
-        self.assertEqual(rules.attempts_allowed(4), 2)
-        self.assertEqual(rules.attempts_allowed(6), 2)
-        self.assertEqual(rules.attempts_allowed(7), 2)
+        self.assertEqual(rules.attempts_allowed(0), 6)
+        self.assertEqual(rules.attempts_allowed(1), 6)
+        self.assertEqual(rules.attempts_allowed(2), 4)
+        self.assertEqual(rules.attempts_allowed(3), 4)
+        self.assertEqual(rules.attempts_allowed(4), 3)
+        self.assertEqual(rules.attempts_allowed(6), 3)
+        self.assertEqual(rules.attempts_allowed(7), 3)
 
     def test_grade_a_floor_pct(self):
         self.assertEqual(rules.grade_a_floor_pct(0), 90)

@@ -80,12 +80,12 @@ def quiz_time_limit_min(question_count):
 def attempts_allowed(credits):
     """Attempts a student may make at a quiz, by course credits."""
     if credits <= 1:
-        return 5
+        return 6
     if credits <= 3:
-        return 3
+        return 4
     if credits <= 6:
-        return 2
-    return 2
+        return 3
+    return 3
 
 
 def grade_a_floor_pct(class_size):
