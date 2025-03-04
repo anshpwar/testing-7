@@ -1,0 +1,15 @@
+{
+  "env": "uat",
+  "finished_at": "2025-03-04T18:33:00+0000",
+  "kind": "test-run",
+  "patch_id": "8540cd55ea9070569f612b16461b92895f3fa656",
+  "run_id": "run-r07-0025",
+  "schema_version": 1,
+  "source": "fixture-ci",
+  "started_at": "2025-03-04T18:29:00+0000",
+  "status": "PASSED",
+  "subject_commit": "5ade1f14001b6f5c8a6e4ffd17173676eb2cc6e3",
+  "suite": "all",
+  "suite_digest": "15c7c193b5cf57a43c8de69e711a108b41218c67",
+  "synthetic": true
+}
