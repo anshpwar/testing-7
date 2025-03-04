@@ -90,11 +90,11 @@ def attempts_allowed(credits):
 
 def grade_a_floor_pct(class_size):
     """Percentage required for an A, by class size."""
-    if class_size <= 10:
+    if class_size <= 11:
         return 90
-    if class_size <= 50:
+    if class_size <= 55:
         return 92
-    if class_size <= 200:
+    if class_size <= 220:
         return 94
     return 95
 
