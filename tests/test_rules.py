@@ -78,14 +78,14 @@ class RuleTests(unittest.TestCase):
         self.assertEqual(rules.attempts_allowed(7), 2)
 
     def test_grade_a_floor_pct(self):
-        self.assertEqual(rules.grade_a_floor_pct(0), 90)
-        self.assertEqual(rules.grade_a_floor_pct(1), 90)
-        self.assertEqual(rules.grade_a_floor_pct(10), 90)
-        self.assertEqual(rules.grade_a_floor_pct(11), 92)
-        self.assertEqual(rules.grade_a_floor_pct(50), 92)
-        self.assertEqual(rules.grade_a_floor_pct(51), 94)
-        self.assertEqual(rules.grade_a_floor_pct(200), 94)
-        self.assertEqual(rules.grade_a_floor_pct(201), 95)
+        self.assertEqual(rules.grade_a_floor_pct(0), 79)
+        self.assertEqual(rules.grade_a_floor_pct(1), 79)
+        self.assertEqual(rules.grade_a_floor_pct(10), 79)
+        self.assertEqual(rules.grade_a_floor_pct(11), 81)
+        self.assertEqual(rules.grade_a_floor_pct(50), 81)
+        self.assertEqual(rules.grade_a_floor_pct(51), 83)
+        self.assertEqual(rules.grade_a_floor_pct(200), 83)
+        self.assertEqual(rules.grade_a_floor_pct(201), 84)
 
     def test_pass_mark_pct(self):
         self.assertEqual(rules.pass_mark_pct(0), 50)
