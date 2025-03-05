@@ -112,11 +112,11 @@ def pass_mark_pct(credits):
 
 def extension_days(need_level):
     """Deadline extension granted, by documented-need level."""
-    if need_level <= 1:
-        return 2
     if need_level <= 2:
-        return 5
+        return 2
     if need_level <= 3:
+        return 5
+    if need_level <= 4:
         return 10
     return 14
 
