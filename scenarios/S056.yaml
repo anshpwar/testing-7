@@ -1,0 +1,66 @@
+scenario_id: S056
+repo_id: testing-7
+title: Commit amended after its test run
+difficulty: 3
+primary_catalog_id: 56
+catalog_ids:
+- 56
+expected_git_outcome: EVIDENCE_ONLY
+merge_pair:
+  base: scenario/S056/base
+  target: scenario/S056/target
+  all_pairs:
+  - - scenario/S056/base
+    - scenario/S056/target
+  additional_sides: {}
+fork_commit: '@S056.F'
+expected_conflicted_files: []
+validation_method: merge
+clone_profile: full
+branches:
+- scenario/S056/base
+- scenario/S056/target
+original_commits:
+- '@S056.c1'
+derived_commits:
+- '@S056.c2'
+change_relationships:
+- a: '@S056.c1'
+  b: '@S056.c2'
+  relation: partial
+files:
+- lmskit/rules.py
+- tests/test_rules.py
+regions:
+- file: lmskit/rules.py
+  function: quiz_time_limit_min
+testing_evidence: ci PASSED belongs to pre-amend c1; amended c2 never tested
+deployment_evidence: none
+metadata_availability: full
+known_uncertainty: none
+expected_warnings:
+- commit was amended after its test run
+safe_resolution_constraints: []
+human_review_required: false
+assertions:
+- type: commit_differs
+  a: '@S056.c1'
+  b: '@S056.c2'
+- type: patch_id_differs
+  a: '@S056.c1'
+  b: '@S056.c2'
+- type: note
+  ref: ci
+  commit: '@S056.c2'
+  expect: absent
+- type: note
+  ref: ci
+  commit: '@S056.c1'
+  expect: present
+  fields:
+    status: PASSED
+id: '56'
+sub_entries: []
+patch_ids:
+  '@S056.c1': d9e4e21e7a3eb4a0fad2327d0eb2124d07d3ab4c
+  '@S056.c2': a4208f6a0ca3d73b2bcccff6a8882b2c7f811359

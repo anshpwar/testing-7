@@ -1,0 +1,69 @@
+scenario_id: S019
+repo_id: testing-7
+title: Backported commits squashed into one
+difficulty: 3
+primary_catalog_id: 19
+catalog_ids:
+- 19
+expected_git_outcome: CONFLICT
+merge_pair:
+  base: scenario/S019/base
+  target: scenario/S019/target
+  all_pairs:
+  - - scenario/S019/base
+    - scenario/S019/target
+  additional_sides: {}
+fork_commit: '@S019.F'
+expected_conflicted_files:
+- lmskit/rules.py
+- tests/test_rules.py
+validation_method: merge
+clone_profile: full
+branches:
+- scenario/S019/base
+- scenario/S019/target
+original_commits:
+- '@S019.t1'
+- '@S019.t2'
+derived_commits:
+- '@S019.sq'
+change_relationships:
+- a: '@S019.t1'
+  b: '@S019.sq'
+  relation: combined
+- a: '@S019.t2'
+  b: '@S019.sq'
+  relation: combined
+files:
+- lmskit/rules.py
+- tests/test_rules.py
+regions:
+- file: lmskit/rules.py
+  function: waitlist_size
+- file: lmskit/rules.py
+  function: scholarship_credit_cap
+- file: lmskit/rules.py
+  function: late_penalty_bp
+testing_evidence: none
+deployment_evidence: none
+metadata_availability: squash dropped the cherry-pick trailers
+known_uncertainty: none
+expected_warnings:
+- squashed backport; trailers lost
+safe_resolution_constraints: []
+human_review_required: false
+assertions:
+- type: trailer
+  commit: '@S019.sq'
+  expect: missing
+- type: diff_subset
+  small:
+  - '@S019.t1'
+  - '@S019.t2'
+  big: '@S019.sq'
+id: '19'
+sub_entries: []
+patch_ids:
+  '@S019.t1': c6f62233f7632c5a6cef79bed948e952105fbaca
+  '@S019.t2': a7b362f7b89cb8f2942fcf29aa13215ef6f7329a
+  '@S019.sq': 0654368b998c89392be2956073115ec848eefd33

@@ -1,0 +1,244 @@
+scenario_id: S084
+repo_id: testing-7
+title: Provenance references that do not resolve to the real origin
+difficulty: 5
+primary_catalog_id: 84
+catalog_ids:
+- 84
+- 20
+- 13
+- 27
+- 39
+- 22
+expected_git_outcome: CONFLICT
+merge_pair:
+  base: scenario/S084/base
+  target: scenario/S084/target
+  all_pairs:
+  - - scenario/S084/base
+    - scenario/S084/target
+  additional_sides: {}
+fork_commit: '@S084.F'
+expected_conflicted_files:
+- lmskit/rules.py
+- tests/test_rules.py
+validation_method: merge
+clone_profile: full
+branches:
+- scenario/S084/base
+- scenario/S084/target
+original_commits:
+- '@S084.t1'
+derived_commits:
+- '@S084.b1'
+change_relationships:
+- a: '@S084.t1'
+  b: '@S084.b1'
+  relation: identical
+files:
+- lmskit/rules.py
+- tests/test_rules.py
+regions:
+- file: lmskit/rules.py
+  function: scholarship_credit_cap
+testing_evidence: record stored on t2 describes t1; t1 itself has no record
+deployment_evidence: deploy record on t2 names t1 as the deployed commit
+metadata_availability: message trailer names a nonexistent commit; provenance note names an unrelated
+  commit
+known_uncertainty: true origin recoverable only by patch-id
+expected_warnings:
+- no provenance reference resolves to the true origin
+safe_resolution_constraints: []
+human_review_required: true
+assertions:
+- type: patch_id_equal
+  a: '@S084.t1'
+  b: '@S084.b1'
+- type: trailer
+  commit: '@S084.b1'
+  expect: invalid
+  origin: '@S084.t1'
+- type: note
+  ref: provenance
+  commit: '@S084.b1'
+  expect: present
+id: '84'
+sub_entries:
+- original_commits:
+  - '@S084.c20_t1'
+  derived_commits:
+  - '@S084.c20_b1'
+  change_relationships:
+  - a: '@S084.c20_t1'
+    b: '@S084.c20_b1'
+    relation: identical
+  files:
+  - lmskit/rules.py
+  - tests/test_rules.py
+  regions:
+  - file: lmskit/rules.py
+    function: retry_backoff_s
+  testing_evidence: none
+  deployment_evidence: none
+  metadata_availability: trailer and provenance note both name the wrong origin commit
+  known_uncertainty: true origin recoverable only by patch-id
+  expected_warnings:
+  - cherry-pick trailer does not point at the real origin
+  safe_resolution_constraints: []
+  human_review_required: false
+  assertions:
+  - type: patch_id_equal
+    a: '@S084.c20_t1'
+    b: '@S084.c20_b1'
+  - type: trailer
+    commit: '@S084.c20_b1'
+    expect: invalid
+    origin: '@S084.c20_t1'
+  - type: note
+    ref: provenance
+    commit: '@S084.c20_b1'
+    expect: present
+  id: 84.a
+  catalog_id: 20
+- original_commits:
+  - '@S084.c13_t1'
+  derived_commits:
+  - '@S084.c13_b1'
+  change_relationships:
+  - a: '@S084.c13_t1'
+    b: '@S084.c13_b1'
+    relation: identical
+  files:
+  - lmskit/rules.py
+  - tests/test_rules.py
+  regions:
+  - file: lmskit/rules.py
+    function: reminder_lead_hours
+  testing_evidence: none
+  deployment_evidence: none
+  metadata_availability: no cherry-pick trailer; lineage recoverable only through patch-id
+  known_uncertainty: none
+  expected_warnings:
+  - no explicit origin reference
+  safe_resolution_constraints: []
+  human_review_required: false
+  assertions:
+  - type: patch_id_equal
+    a: '@S084.c13_t1'
+    b: '@S084.c13_b1'
+  - type: trailer
+    commit: '@S084.c13_b1'
+    expect: missing
+  id: 84.b
+  catalog_id: 13
+- original_commits:
+  - '@S084.c27_t1'
+  derived_commits:
+  - '@S084.c27_t2'
+  change_relationships:
+  - a: '@S084.c27_t1'
+    b: '@S084.c27_t2'
+    relation: unrelated
+  files:
+  - lmskit/rules.py
+  - tests/test_rules.py
+  regions:
+  - file: lmskit/rules.py
+    function: quiz_time_limit_min
+  testing_evidence: record stored on t2 describes t1; t1 itself has no record
+  deployment_evidence: none
+  metadata_availability: misattached record
+  known_uncertainty: none
+  expected_warnings:
+  - note attached to a commit whose subject_commit names another commit
+  safe_resolution_constraints: []
+  human_review_required: false
+  assertions:
+  - type: note_subject_mismatch
+    ref: ci
+    commit: '@S084.c27_t2'
+    subject: '@S084.c27_t1'
+  - type: note
+    ref: ci
+    commit: '@S084.c27_t1'
+    expect: absent
+  id: 84.c
+  catalog_id: 27
+- original_commits:
+  - '@S084.c39_t1'
+  derived_commits:
+  - '@S084.c39_t2'
+  change_relationships:
+  - a: '@S084.c39_t1'
+    b: '@S084.c39_t2'
+    relation: unrelated
+  files:
+  - lmskit/rules.py
+  - tests/test_rules.py
+  regions:
+  - file: lmskit/rules.py
+    function: grade_a_floor_pct
+  testing_evidence: none
+  deployment_evidence: deploy record on t2 names t1 as the deployed commit
+  metadata_availability: misattached deploy record
+  known_uncertainty: none
+  expected_warnings:
+  - deployment record points at a different commit than it is attached to
+  safe_resolution_constraints: []
+  human_review_required: false
+  assertions:
+  - type: note_subject_mismatch
+    ref: deploy
+    commit: '@S084.c39_t2'
+    subject: '@S084.c39_t1'
+  id: 84.d
+  catalog_id: 39
+- original_commits:
+  - '@S084.c22_t1'
+  derived_commits:
+  - '@S084.c22_b1'
+  change_relationships:
+  - a: '@S084.c22_t1'
+    b: '@S084.c22_b1'
+    relation: unrelated
+  files:
+  - lmskit/rules.py
+  - tests/test_rules.py
+  regions:
+  - file: lmskit/rules.py
+    function: extension_days
+  testing_evidence: t1 message claims tests passed; no record exists and the suite actually fails
+  deployment_evidence: none
+  metadata_availability: message claim only
+  known_uncertainty: none
+  expected_warnings:
+  - commit message is not test evidence
+  safe_resolution_constraints: []
+  human_review_required: true
+  assertions:
+  - type: note
+    ref: ci
+    commit: '@S084.c22_t1'
+    expect: absent
+  - type: message_contains
+    commit: '@S084.c22_t1'
+    text: all tests passed
+  - type: real_tests
+    commit: '@S084.c22_t1'
+    suite: unit
+    expect: failed
+  id: 84.e
+  catalog_id: 22
+patch_ids:
+  '@S084.t1': 3781849c6472615a7b003429c270c77feb05bf4b
+  '@S084.b1': 3781849c6472615a7b003429c270c77feb05bf4b
+  '@S084.c20_t1': 3957466a1f91458891d0cb41733cf8eca9afcd57
+  '@S084.c20_b1': 8a94ebca3b4e300a467dfcc1f623698e283b00c2
+  '@S084.c13_t1': 54450d59e68a9a9779a21951e69448b6c569119f
+  '@S084.c13_b1': 40a86610068118d862f82a336cb783543d9088a5
+  '@S084.c27_t1': dd02083c123349576cc1c03cd672d0056566a920
+  '@S084.c27_t2': bea3a5d4eeab4b9e96e3fe3769cfdbb5b2b09815
+  '@S084.c39_t1': 8540cd55ea9070569f612b16461b92895f3fa656
+  '@S084.c39_t2': b8637888c2bb1fafab155337e206b54bb2c0f730
+  '@S084.c22_t1': a5fd4732f851a94316efaade13c037e173a9e007
+  '@S084.c22_b1': cc671f8266b996ddea7f0dd19459e197c57320ae

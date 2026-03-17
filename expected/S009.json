@@ -1,0 +1,87 @@
+{
+  "scenario_id": "S009",
+  "repo_id": "testing-7",
+  "title": "Helper module moved while both sides edit it",
+  "difficulty": 3,
+  "primary_catalog_id": 9,
+  "catalog_ids": [
+    9
+  ],
+  "expected_git_outcome": "CONFLICT",
+  "merge_pair": {
+    "base": "scenario/S009/base",
+    "target": "scenario/S009/target",
+    "all_pairs": [
+      [
+        "scenario/S009/base",
+        "scenario/S009/target"
+      ]
+    ],
+    "additional_sides": {}
+  },
+  "fork_commit": "3dd2ea7661a0376da18ca1a7a9ab88bce6250a7d",
+  "expected_conflicted_files": [
+    "lmskit/util/strings.py"
+  ],
+  "validation_method": "merge",
+  "clone_profile": "full",
+  "branches": [
+    "scenario/S009/base",
+    "scenario/S009/target"
+  ],
+  "original_commits": [
+    "a41527ba6f780f9e8bb2d8620b5eab36594d2216"
+  ],
+  "derived_commits": [
+    "78be04079dd1fcc446ab0fb9d9b64ca9423c557f"
+  ],
+  "change_relationships": [
+    {
+      "a": "78be04079dd1fcc446ab0fb9d9b64ca9423c557f",
+      "b": "a41527ba6f780f9e8bb2d8620b5eab36594d2216",
+      "relation": "unrelated"
+    }
+  ],
+  "files": [
+    "lmskit/helpers.py",
+    "lmskit/util/strings.py"
+  ],
+  "regions": [
+    {
+      "file": "lmskit/helpers.py",
+      "function": "clip"
+    },
+    {
+      "file": "lmskit/util/strings.py",
+      "function": "clip"
+    }
+  ],
+  "testing_evidence": "none",
+  "deployment_evidence": "none",
+  "metadata_availability": "full",
+  "known_uncertainty": "none",
+  "expected_warnings": [
+    "same function edited on both sides across a rename"
+  ],
+  "safe_resolution_constraints": [],
+  "human_review_required": false,
+  "assertions": [
+    {
+      "type": "rename_detected",
+      "commit": "78be04079dd1fcc446ab0fb9d9b64ca9423c557f",
+      "old": "lmskit/helpers.py",
+      "new": "lmskit/util/strings.py"
+    }
+  ],
+  "id": "9",
+  "sub_entries": [],
+  "patch_ids": {
+    "@S009.t1": "33cfe1b966691e7430245ad6bbe9c7306582f243",
+    "@S009.b1": "167cd7adc06e44b499e6e262c830c7139971ce10"
+  },
+  "commit_labels": {
+    "S009.F": "3dd2ea7661a0376da18ca1a7a9ab88bce6250a7d",
+    "S009.b1": "78be04079dd1fcc446ab0fb9d9b64ca9423c557f",
+    "S009.t1": "a41527ba6f780f9e8bb2d8620b5eab36594d2216"
+  }
+}

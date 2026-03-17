@@ -1,0 +1,100 @@
+{
+  "scenario_id": "S056",
+  "repo_id": "testing-7",
+  "title": "Commit amended after its test run",
+  "difficulty": 3,
+  "primary_catalog_id": 56,
+  "catalog_ids": [
+    56
+  ],
+  "expected_git_outcome": "EVIDENCE_ONLY",
+  "merge_pair": {
+    "base": "scenario/S056/base",
+    "target": "scenario/S056/target",
+    "all_pairs": [
+      [
+        "scenario/S056/base",
+        "scenario/S056/target"
+      ]
+    ],
+    "additional_sides": {}
+  },
+  "fork_commit": "3dd2ea7661a0376da18ca1a7a9ab88bce6250a7d",
+  "expected_conflicted_files": [],
+  "validation_method": "merge",
+  "clone_profile": "full",
+  "branches": [
+    "scenario/S056/base",
+    "scenario/S056/target"
+  ],
+  "original_commits": [
+    "573b0df311356300e4359be7b9f5ec3fed2f2920"
+  ],
+  "derived_commits": [
+    "f591556bb175e73b7239905a14aa423c2bcbdd0d"
+  ],
+  "change_relationships": [
+    {
+      "a": "573b0df311356300e4359be7b9f5ec3fed2f2920",
+      "b": "f591556bb175e73b7239905a14aa423c2bcbdd0d",
+      "relation": "partial"
+    }
+  ],
+  "files": [
+    "lmskit/rules.py",
+    "tests/test_rules.py"
+  ],
+  "regions": [
+    {
+      "file": "lmskit/rules.py",
+      "function": "quiz_time_limit_min"
+    }
+  ],
+  "testing_evidence": "ci PASSED belongs to pre-amend c1; amended c2 never tested",
+  "deployment_evidence": "none",
+  "metadata_availability": "full",
+  "known_uncertainty": "none",
+  "expected_warnings": [
+    "commit was amended after its test run"
+  ],
+  "safe_resolution_constraints": [],
+  "human_review_required": false,
+  "assertions": [
+    {
+      "type": "commit_differs",
+      "a": "573b0df311356300e4359be7b9f5ec3fed2f2920",
+      "b": "f591556bb175e73b7239905a14aa423c2bcbdd0d"
+    },
+    {
+      "type": "patch_id_differs",
+      "a": "573b0df311356300e4359be7b9f5ec3fed2f2920",
+      "b": "f591556bb175e73b7239905a14aa423c2bcbdd0d"
+    },
+    {
+      "type": "note",
+      "ref": "ci",
+      "commit": "f591556bb175e73b7239905a14aa423c2bcbdd0d",
+      "expect": "absent"
+    },
+    {
+      "type": "note",
+      "ref": "ci",
+      "commit": "573b0df311356300e4359be7b9f5ec3fed2f2920",
+      "expect": "present",
+      "fields": {
+        "status": "PASSED"
+      }
+    }
+  ],
+  "id": "56",
+  "sub_entries": [],
+  "patch_ids": {
+    "@S056.c1": "d9e4e21e7a3eb4a0fad2327d0eb2124d07d3ab4c",
+    "@S056.c2": "a4208f6a0ca3d73b2bcccff6a8882b2c7f811359"
+  },
+  "commit_labels": {
+    "S056.F": "3dd2ea7661a0376da18ca1a7a9ab88bce6250a7d",
+    "S056.c1": "573b0df311356300e4359be7b9f5ec3fed2f2920",
+    "S056.c2": "f591556bb175e73b7239905a14aa423c2bcbdd0d"
+  }
+}

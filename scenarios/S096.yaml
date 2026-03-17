@@ -1,0 +1,114 @@
+scenario_id: S096
+repo_id: testing-7
+title: Vendored library update versus a local patch
+difficulty: 4
+primary_catalog_id: 96
+catalog_ids:
+- 96
+- 75
+- 80
+expected_git_outcome: CONFLICT
+merge_pair:
+  base: scenario/S096/base
+  target: scenario/S096/target
+  all_pairs:
+  - - scenario/S096/base
+    - scenario/S096/target
+  additional_sides: {}
+fork_commit: '@S096.F'
+expected_conflicted_files:
+- lmskit/deps/textfmt.py
+- requirements.txt
+validation_method: merge
+clone_profile: full
+branches:
+- scenario/S096/base
+- scenario/S096/target
+original_commits:
+- '@S096.b1'
+derived_commits:
+- '@S096.t1'
+change_relationships:
+- a: '@S096.b1'
+  b: '@S096.t1'
+  relation: unrelated
+files:
+- lmskit/deps/textfmt.py
+regions:
+- file: lmskit/deps/textfmt.py
+  function: pad_left
+testing_evidence: none
+deployment_evidence: none
+metadata_availability: full
+known_uncertainty: none
+expected_warnings:
+- upstream vendor update collides with a local patch to the same line
+safe_resolution_constraints:
+- pick one pin; do not keep both lines
+human_review_required: true
+assertions:
+- &id001
+  type: merge_then_tests
+  expect: fail
+  suites:
+  - unit
+id: '96'
+sub_entries:
+- original_commits:
+  - '@S096.c75_b1'
+  derived_commits:
+  - '@S096.c75_t1'
+  change_relationships:
+  - a: '@S096.c75_b1'
+    b: '@S096.c75_t1'
+    relation: unrelated
+  files:
+  - requirements.txt
+  regions:
+  - file: requirements.txt
+    line: pytest
+  testing_evidence: none
+  deployment_evidence: none
+  metadata_availability: full
+  known_uncertainty: none
+  expected_warnings:
+  - two different pins for the same dependency
+  safe_resolution_constraints:
+  - pick one pin; do not keep both lines
+  human_review_required: false
+  assertions: []
+  id: 96.a
+  catalog_id: 75
+- original_commits:
+  - '@S096.c80_k80b'
+  derived_commits:
+  - '@S096.c80_k80t'
+  change_relationships:
+  - a: '@S096.c80_k80b'
+    b: '@S096.c80_k80t'
+    relation: unrelated
+  files:
+  - lmskit/deps/textfmt.py
+  - lmskit/consumer_80.py
+  regions:
+  - file: lmskit/deps/textfmt.py
+    function: pad_left
+  testing_evidence: none
+  deployment_evidence: none
+  metadata_availability: full
+  known_uncertainty: none
+  expected_warnings:
+  - dependency upgrade removed an API the other branch just started using
+  safe_resolution_constraints: []
+  human_review_required: false
+  assertions:
+  - *id001
+  id: 96.b
+  catalog_id: 80
+patch_ids:
+  '@S096.b1': 752d82c3f69cf50e17d8bef6f7443d6d0d2ef6f0
+  '@S096.t1': bdee39fc1c3fe024ae2e6ea483a2cdaa33aa532c
+  '@S096.c75_b1': e7f408b8f44d9579b3990b88b6c6d33251bf021f
+  '@S096.c75_t1': 833e63891f7d47bd223b11996cb0301a04adb3ec
+  '@S096.c80_k80b': ca913f7d2a6c08efd7e83dfcef7c8c42f7bb2838
+  '@S096.c80_k80t': 572529a3e95df31a23457a321497a67181ec5fe6

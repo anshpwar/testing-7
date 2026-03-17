@@ -1,0 +1,57 @@
+scenario_id: S009
+repo_id: testing-7
+title: Helper module moved while both sides edit it
+difficulty: 3
+primary_catalog_id: 9
+catalog_ids:
+- 9
+expected_git_outcome: CONFLICT
+merge_pair:
+  base: scenario/S009/base
+  target: scenario/S009/target
+  all_pairs:
+  - - scenario/S009/base
+    - scenario/S009/target
+  additional_sides: {}
+fork_commit: '@S009.F'
+expected_conflicted_files:
+- lmskit/util/strings.py
+validation_method: merge
+clone_profile: full
+branches:
+- scenario/S009/base
+- scenario/S009/target
+original_commits:
+- '@S009.t1'
+derived_commits:
+- '@S009.b1'
+change_relationships:
+- a: '@S009.b1'
+  b: '@S009.t1'
+  relation: unrelated
+files:
+- lmskit/helpers.py
+- lmskit/util/strings.py
+regions:
+- file: lmskit/helpers.py
+  function: clip
+- file: lmskit/util/strings.py
+  function: clip
+testing_evidence: none
+deployment_evidence: none
+metadata_availability: full
+known_uncertainty: none
+expected_warnings:
+- same function edited on both sides across a rename
+safe_resolution_constraints: []
+human_review_required: false
+assertions:
+- type: rename_detected
+  commit: '@S009.b1'
+  old: lmskit/helpers.py
+  new: lmskit/util/strings.py
+id: '9'
+sub_entries: []
+patch_ids:
+  '@S009.t1': 33cfe1b966691e7430245ad6bbe9c7306582f243
+  '@S009.b1': 167cd7adc06e44b499e6e262c830c7139971ce10

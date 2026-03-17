@@ -1,0 +1,77 @@
+{
+  "scenario_id": "S075",
+  "repo_id": "testing-7",
+  "title": "Two different pins for the same dependency",
+  "difficulty": 1,
+  "primary_catalog_id": 75,
+  "catalog_ids": [
+    75
+  ],
+  "expected_git_outcome": "CONFLICT",
+  "merge_pair": {
+    "base": "scenario/S075/base",
+    "target": "scenario/S075/target",
+    "all_pairs": [
+      [
+        "scenario/S075/base",
+        "scenario/S075/target"
+      ]
+    ],
+    "additional_sides": {}
+  },
+  "fork_commit": "3dd2ea7661a0376da18ca1a7a9ab88bce6250a7d",
+  "expected_conflicted_files": [
+    "requirements.txt"
+  ],
+  "validation_method": "merge",
+  "clone_profile": "full",
+  "branches": [
+    "scenario/S075/base",
+    "scenario/S075/target"
+  ],
+  "original_commits": [
+    "07db11d81a74f7513be192bf9f12366b342a9747"
+  ],
+  "derived_commits": [
+    "52c4624a00034fcfc8e1cef80d8af9fb173665bb"
+  ],
+  "change_relationships": [
+    {
+      "a": "07db11d81a74f7513be192bf9f12366b342a9747",
+      "b": "52c4624a00034fcfc8e1cef80d8af9fb173665bb",
+      "relation": "unrelated"
+    }
+  ],
+  "files": [
+    "requirements.txt"
+  ],
+  "regions": [
+    {
+      "file": "requirements.txt",
+      "line": "pytest"
+    }
+  ],
+  "testing_evidence": "none",
+  "deployment_evidence": "none",
+  "metadata_availability": "full",
+  "known_uncertainty": "none",
+  "expected_warnings": [
+    "two different pins for the same dependency"
+  ],
+  "safe_resolution_constraints": [
+    "pick one pin; do not keep both lines"
+  ],
+  "human_review_required": false,
+  "assertions": [],
+  "id": "75",
+  "sub_entries": [],
+  "patch_ids": {
+    "@S075.b1": "e7f408b8f44d9579b3990b88b6c6d33251bf021f",
+    "@S075.t1": "833e63891f7d47bd223b11996cb0301a04adb3ec"
+  },
+  "commit_labels": {
+    "S075.F": "3dd2ea7661a0376da18ca1a7a9ab88bce6250a7d",
+    "S075.b1": "07db11d81a74f7513be192bf9f12366b342a9747",
+    "S075.t1": "52c4624a00034fcfc8e1cef80d8af9fb173665bb"
+  }
+}

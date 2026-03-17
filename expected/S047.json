@@ -1,0 +1,90 @@
+{
+  "scenario_id": "S047",
+  "repo_id": "testing-7",
+  "title": "Repository used with no external database",
+  "difficulty": 2,
+  "primary_catalog_id": 47,
+  "catalog_ids": [
+    47
+  ],
+  "expected_git_outcome": "CONFLICT",
+  "merge_pair": {
+    "base": "scenario/S062/base",
+    "target": "scenario/S062/target",
+    "all_pairs": [
+      [
+        "scenario/S062/base",
+        "scenario/S062/target"
+      ]
+    ],
+    "additional_sides": {}
+  },
+  "fork_commit": "3dd2ea7661a0376da18ca1a7a9ab88bce6250a7d",
+  "expected_conflicted_files": [
+    "lmskit/rules.py",
+    "tests/test_rules.py"
+  ],
+  "validation_method": "merge",
+  "clone_profile": {
+    "name": "no-external-db",
+    "offline": true,
+    "effect": "no network or external database; repository only"
+  },
+  "sits_on": [
+    "S062"
+  ],
+  "branches": [
+    "scenario/S062/base",
+    "scenario/S062/target"
+  ],
+  "id": "47",
+  "original_commits": [
+    "f4fa2930f7d76b101bccae70cc98f8b5fa659b98"
+  ],
+  "derived_commits": [
+    "f0ef2e11e4efd16696e6b283233ec43947f93608"
+  ],
+  "change_relationships": [
+    {
+      "a": "f4fa2930f7d76b101bccae70cc98f8b5fa659b98",
+      "b": "f0ef2e11e4efd16696e6b283233ec43947f93608",
+      "relation": "reverted"
+    }
+  ],
+  "files": [
+    "lmskit/rules.py",
+    "tests/test_rules.py"
+  ],
+  "regions": [
+    {
+      "file": "lmskit/rules.py",
+      "function": "reminder_lead_hours"
+    },
+    {
+      "file": "lmskit/rules.py",
+      "function": "quiz_time_limit_min"
+    }
+  ],
+  "testing_evidence": "none",
+  "deployment_evidence": "none",
+  "metadata_availability": "no network or external database; repository only",
+  "known_uncertainty": "evidence is reachable only as far as the clone profile allows",
+  "expected_warnings": [
+    "clone profile no-external-db: no network or external database; repository only",
+    "only half of the original change was reverted"
+  ],
+  "safe_resolution_constraints": [],
+  "human_review_required": true,
+  "assertions": [
+    {
+      "type": "profile_effect",
+      "profile": "no-external-db"
+    }
+  ],
+  "sub_entries": [],
+  "patch_ids": {
+    "@S062.c1": "7408959269c4c9d889dfab5376628be8ca418591",
+    "@S062.rv": "cdf1ae98381897fcc0dd16d284bbe886803873b8"
+  },
+  "commit_labels": {}
+}

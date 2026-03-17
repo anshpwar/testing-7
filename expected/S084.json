@@ -1,0 +1,385 @@
+{
+  "scenario_id": "S084",
+  "repo_id": "testing-7",
+  "title": "Provenance references that do not resolve to the real origin",
+  "difficulty": 5,
+  "primary_catalog_id": 84,
+  "catalog_ids": [
+    84,
+    20,
+    13,
+    27,
+    39,
+    22
+  ],
+  "expected_git_outcome": "CONFLICT",
+  "merge_pair": {
+    "base": "scenario/S084/base",
+    "target": "scenario/S084/target",
+    "all_pairs": [
+      [
+        "scenario/S084/base",
+        "scenario/S084/target"
+      ]
+    ],
+    "additional_sides": {}
+  },
+  "fork_commit": "3dd2ea7661a0376da18ca1a7a9ab88bce6250a7d",
+  "expected_conflicted_files": [
+    "lmskit/rules.py",
+    "tests/test_rules.py"
+  ],
+  "validation_method": "merge",
+  "clone_profile": "full",
+  "branches": [
+    "scenario/S084/base",
+    "scenario/S084/target"
+  ],
+  "original_commits": [
+    "c0e8e7d2c5d30e8e5518b25a614a1c623bb4208f"
+  ],
+  "derived_commits": [
+    "a4eab04396c65c476ef38477c46086920dd67b7a"
+  ],
+  "change_relationships": [
+    {
+      "a": "c0e8e7d2c5d30e8e5518b25a614a1c623bb4208f",
+      "b": "a4eab04396c65c476ef38477c46086920dd67b7a",
+      "relation": "identical"
+    }
+  ],
+  "files": [
+    "lmskit/rules.py",
+    "tests/test_rules.py"
+  ],
+  "regions": [
+    {
+      "file": "lmskit/rules.py",
+      "function": "scholarship_credit_cap"
+    }
+  ],
+  "testing_evidence": "record stored on t2 describes t1; t1 itself has no record",
+  "deployment_evidence": "deploy record on t2 names t1 as the deployed commit",
+  "metadata_availability": "message trailer names a nonexistent commit; provenance note names an unrelated commit",
+  "known_uncertainty": "true origin recoverable only by patch-id",
+  "expected_warnings": [
+    "no provenance reference resolves to the true origin"
+  ],
+  "safe_resolution_constraints": [],
+  "human_review_required": true,
+  "assertions": [
+    {
+      "type": "patch_id_equal",
+      "a": "c0e8e7d2c5d30e8e5518b25a614a1c623bb4208f",
+      "b": "a4eab04396c65c476ef38477c46086920dd67b7a"
+    },
+    {
+      "type": "trailer",
+      "commit": "a4eab04396c65c476ef38477c46086920dd67b7a",
+      "expect": "invalid",
+      "origin": "c0e8e7d2c5d30e8e5518b25a614a1c623bb4208f"
+    },
+    {
+      "type": "note",
+      "ref": "provenance",
+      "commit": "a4eab04396c65c476ef38477c46086920dd67b7a",
+      "expect": "present"
+    }
+  ],
+  "id": "84",
+  "sub_entries": [
+    {
+      "original_commits": [
+        "966a391ec99e9f134b8f025561d9b8a6ebe36093"
+      ],
+      "derived_commits": [
+        "39ed61af50bdc7a58916e0127bf0d17a022572ff"
+      ],
+      "change_relationships": [
+        {
+          "a": "966a391ec99e9f134b8f025561d9b8a6ebe36093",
+          "b": "39ed61af50bdc7a58916e0127bf0d17a022572ff",
+          "relation": "identical"
+        }
+      ],
+      "files": [
+        "lmskit/rules.py",
+        "tests/test_rules.py"
+      ],
+      "regions": [
+        {
+          "file": "lmskit/rules.py",
+          "function": "retry_backoff_s"
+        }
+      ],
+      "testing_evidence": "none",
+      "deployment_evidence": "none",
+      "metadata_availability": "trailer and provenance note both name the wrong origin commit",
+      "known_uncertainty": "true origin recoverable only by patch-id",
+      "expected_warnings": [
+        "cherry-pick trailer does not point at the real origin"
+      ],
+      "safe_resolution_constraints": [],
+      "human_review_required": false,
+      "assertions": [
+        {
+          "type": "patch_id_equal",
+          "a": "966a391ec99e9f134b8f025561d9b8a6ebe36093",
+          "b": "39ed61af50bdc7a58916e0127bf0d17a022572ff"
+        },
+        {
+          "type": "trailer",
+          "commit": "39ed61af50bdc7a58916e0127bf0d17a022572ff",
+          "expect": "invalid",
+          "origin": "966a391ec99e9f134b8f025561d9b8a6ebe36093"
+        },
+        {
+          "type": "note",
+          "ref": "provenance",
+          "commit": "39ed61af50bdc7a58916e0127bf0d17a022572ff",
+          "expect": "present"
+        }
+      ],
+      "id": "84.a",
+      "catalog_id": 20
+    },
+    {
+      "original_commits": [
+        "2209312939267e2abcbd51c1144ed6e088b67494"
+      ],
+      "derived_commits": [
+        "cb61dd7215fa90569c67b1196f26098ff7f9a8c6"
+      ],
+      "change_relationships": [
+        {
+          "a": "2209312939267e2abcbd51c1144ed6e088b67494",
+          "b": "cb61dd7215fa90569c67b1196f26098ff7f9a8c6",
+          "relation": "identical"
+        }
+      ],
+      "files": [
+        "lmskit/rules.py",
+        "tests/test_rules.py"
+      ],
+      "regions": [
+        {
+          "file": "lmskit/rules.py",
+          "function": "reminder_lead_hours"
+        }
+      ],
+      "testing_evidence": "none",
+      "deployment_evidence": "none",
+      "metadata_availability": "no cherry-pick trailer; lineage recoverable only through patch-id",
+      "known_uncertainty": "none",
+      "expected_warnings": [
+        "no explicit origin reference"
+      ],
+      "safe_resolution_constraints": [],
+      "human_review_required": false,
+      "assertions": [
+        {
+          "type": "patch_id_equal",
+          "a": "2209312939267e2abcbd51c1144ed6e088b67494",
+          "b": "cb61dd7215fa90569c67b1196f26098ff7f9a8c6"
+        },
+        {
+          "type": "trailer",
+          "commit": "cb61dd7215fa90569c67b1196f26098ff7f9a8c6",
+          "expect": "missing"
+        }
+      ],
+      "id": "84.b",
+      "catalog_id": 13
+    },
+    {
+      "original_commits": [
+        "ec0452cd4ef4a8f296c54f0170df6f83c1186b28"
+      ],
+      "derived_commits": [
+        "ceed239b755b213c45e017da881b6107cda1f095"
+      ],
+      "change_relationships": [
+        {
+          "a": "ec0452cd4ef4a8f296c54f0170df6f83c1186b28",
+          "b": "ceed239b755b213c45e017da881b6107cda1f095",
+          "relation": "unrelated"
+        }
+      ],
+      "files": [
+        "lmskit/rules.py",
+        "tests/test_rules.py"
+      ],
+      "regions": [
+        {
+          "file": "lmskit/rules.py",
+          "function": "quiz_time_limit_min"
+        }
+      ],
+      "testing_evidence": "record stored on t2 describes t1; t1 itself has no record",
+      "deployment_evidence": "none",
+      "metadata_availability": "misattached record",
+      "known_uncertainty": "none",
+      "expected_warnings": [
+        "note attached to a commit whose subject_commit names another commit"
+      ],
+      "safe_resolution_constraints": [],
+      "human_review_required": false,
+      "assertions": [
+        {
+          "type": "note_subject_mismatch",
+          "ref": "ci",
+          "commit": "ceed239b755b213c45e017da881b6107cda1f095",
+          "subject": "ec0452cd4ef4a8f296c54f0170df6f83c1186b28"
+        },
+        {
+          "type": "note",
+          "ref": "ci",
+          "commit": "ec0452cd4ef4a8f296c54f0170df6f83c1186b28",
+          "expect": "absent"
+        }
+      ],
+      "id": "84.c",
+      "catalog_id": 27
+    },
+    {
+      "original_commits": [
+        "5ade1f14001b6f5c8a6e4ffd17173676eb2cc6e3"
+      ],
+      "derived_commits": [
+        "14a53ed7072bfc1bb887b4aae33d30e7ef4f4332"
+      ],
+      "change_relationships": [
+        {
+          "a": "5ade1f14001b6f5c8a6e4ffd17173676eb2cc6e3",
+          "b": "14a53ed7072bfc1bb887b4aae33d30e7ef4f4332",
+          "relation": "unrelated"
+        }
+      ],
+      "files": [
+        "lmskit/rules.py",
+        "tests/test_rules.py"
+      ],
+      "regions": [
+        {
+          "file": "lmskit/rules.py",
+          "function": "grade_a_floor_pct"
+        }
+      ],
+      "testing_evidence": "none",
+      "deployment_evidence": "deploy record on t2 names t1 as the deployed commit",
+      "metadata_availability": "misattached deploy record",
+      "known_uncertainty": "none",
+      "expected_warnings": [
+        "deployment record points at a different commit than it is attached to"
+      ],
+      "safe_resolution_constraints": [],
+      "human_review_required": false,
+      "assertions": [
+        {
+          "type": "note_subject_mismatch",
+          "ref": "deploy",
+          "commit": "14a53ed7072bfc1bb887b4aae33d30e7ef4f4332",
+          "subject": "5ade1f14001b6f5c8a6e4ffd17173676eb2cc6e3"
+        }
+      ],
+      "id": "84.d",
+      "catalog_id": 39
+    },
+    {
+      "original_commits": [
+        "70e0ee295d1be7ddf1bcce41cb35e2bb2f31722f"
+      ],
+      "derived_commits": [
+        "49354343c76749579168f9ca2b239f4cf0ad52a8"
+      ],
+      "change_relationships": [
+        {
+          "a": "70e0ee295d1be7ddf1bcce41cb35e2bb2f31722f",
+          "b": "49354343c76749579168f9ca2b239f4cf0ad52a8",
+          "relation": "unrelated"
+        }
+      ],
+      "files": [
+        "lmskit/rules.py",
+        "tests/test_rules.py"
+      ],
+      "regions": [
+        {
+          "file": "lmskit/rules.py",
+          "function": "extension_days"
+        }
+      ],
+      "testing_evidence": "t1 message claims tests passed; no record exists and the suite actually fails",
+      "deployment_evidence": "none",
+      "metadata_availability": "message claim only",
+      "known_uncertainty": "none",
+      "expected_warnings": [
+        "commit message is not test evidence"
+      ],
+      "safe_resolution_constraints": [],
+      "human_review_required": true,
+      "assertions": [
+        {
+          "type": "note",
+          "ref": "ci",
+          "commit": "70e0ee295d1be7ddf1bcce41cb35e2bb2f31722f",
+          "expect": "absent"
+        },
+        {
+          "type": "message_contains",
+          "commit": "70e0ee295d1be7ddf1bcce41cb35e2bb2f31722f",
+          "text": "all tests passed"
+        },
+        {
+          "type": "real_tests",
+          "commit": "70e0ee295d1be7ddf1bcce41cb35e2bb2f31722f",
+          "suite": "unit",
+          "expect": "failed"
+        }
+      ],
+      "id": "84.e",
+      "catalog_id": 22
+    }
+  ],
+  "patch_ids": {
+    "@S084.t1": "3781849c6472615a7b003429c270c77feb05bf4b",
+    "@S084.b1": "3781849c6472615a7b003429c270c77feb05bf4b",
+    "@S084.c20_t1": "3957466a1f91458891d0cb41733cf8eca9afcd57",
+    "@S084.c20_b1": "8a94ebca3b4e300a467dfcc1f623698e283b00c2",
+    "@S084.c13_t1": "54450d59e68a9a9779a21951e69448b6c569119f",
+    "@S084.c13_b1": "40a86610068118d862f82a336cb783543d9088a5",
+    "@S084.c27_t1": "dd02083c123349576cc1c03cd672d0056566a920",
+    "@S084.c27_t2": "bea3a5d4eeab4b9e96e3fe3769cfdbb5b2b09815",
+    "@S084.c39_t1": "8540cd55ea9070569f612b16461b92895f3fa656",
+    "@S084.c39_t2": "b8637888c2bb1fafab155337e206b54bb2c0f730",
+    "@S084.c22_t1": "a5fd4732f851a94316efaade13c037e173a9e007",
+    "@S084.c22_b1": "cc671f8266b996ddea7f0dd19459e197c57320ae"
+  },
+  "commit_labels": {
+    "S084.F": "3dd2ea7661a0376da18ca1a7a9ab88bce6250a7d",
+    "S084.b0": "b667c783f2f9a30a454e494c091ec72900d3c114",
+    "S084.b1": "a4eab04396c65c476ef38477c46086920dd67b7a",
+    "S084.b2": "d04afc2a84b1a3a2e661c4cebb83b97477404e5b",
+    "S084.c13_b1": "cb61dd7215fa90569c67b1196f26098ff7f9a8c6",
+    "S084.c13_b2": "1986b6697b139ee555633fecdd3e05846147e551",
+    "S084.c13_t1": "2209312939267e2abcbd51c1144ed6e088b67494",
+    "S084.c13_t2": "f6e99db4a2e4f56efcebf297bc69a4a544b92c45",
+    "S084.c20_b0": "17957bca7f0f515c6588e08700c4b88cd3a13db8",
+    "S084.c20_b1": "39ed61af50bdc7a58916e0127bf0d17a022572ff",
+    "S084.c20_b2": "38bfaf41b06478e037f42fd930fa494c82bad2e4",
+    "S084.c20_t1": "966a391ec99e9f134b8f025561d9b8a6ebe36093",
+    "S084.c20_t2": "bbcf2fb020bc4e4aa7f6f7b3b5334fab916a7dce",
+    "S084.c20_u1": "0dff4e230f82bf97426b1a6dee4283aa1c365c20",
+    "S084.c22_b1": "49354343c76749579168f9ca2b239f4cf0ad52a8",
+    "S084.c22_t1": "70e0ee295d1be7ddf1bcce41cb35e2bb2f31722f",
+    "S084.c27_b1": "42aa9d4385306d3f46de87436351dec6447811fd",
+    "S084.c27_t1": "ec0452cd4ef4a8f296c54f0170df6f83c1186b28",
+    "S084.c27_t2": "ceed239b755b213c45e017da881b6107cda1f095",
+    "S084.c39_b1": "adfa3b5660390a305a8adc0ef527ea28016a09a8",
+    "S084.c39_t1": "5ade1f14001b6f5c8a6e4ffd17173676eb2cc6e3",
+    "S084.c39_t2": "14a53ed7072bfc1bb887b4aae33d30e7ef4f4332",
+    "S084.t1": "c0e8e7d2c5d30e8e5518b25a614a1c623bb4208f",
+    "S084.t2": "fe04fb3b7a1e2172793e095fd4f846b03176b6b4",
+    "S084.u1": "5880157136901b378ecee44fcc61049bb8d3efc4"
+  }
+}

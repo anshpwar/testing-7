@@ -1,0 +1,111 @@
+{
+  "scenario_id": "S019",
+  "repo_id": "testing-7",
+  "title": "Backported commits squashed into one",
+  "difficulty": 3,
+  "primary_catalog_id": 19,
+  "catalog_ids": [
+    19
+  ],
+  "expected_git_outcome": "CONFLICT",
+  "merge_pair": {
+    "base": "scenario/S019/base",
+    "target": "scenario/S019/target",
+    "all_pairs": [
+      [
+        "scenario/S019/base",
+        "scenario/S019/target"
+      ]
+    ],
+    "additional_sides": {}
+  },
+  "fork_commit": "3dd2ea7661a0376da18ca1a7a9ab88bce6250a7d",
+  "expected_conflicted_files": [
+    "lmskit/rules.py",
+    "tests/test_rules.py"
+  ],
+  "validation_method": "merge",
+  "clone_profile": "full",
+  "branches": [
+    "scenario/S019/base",
+    "scenario/S019/target"
+  ],
+  "original_commits": [
+    "53d118ab569c5b8cfb5761915671890fa028d02f",
+    "e75cc5eeae1a0f9c18fcf4a3fd3cd6fac05c5cd0"
+  ],
+  "derived_commits": [
+    "f6f4f7e6ffa319a874478aa065e5e2e68f5116d9"
+  ],
+  "change_relationships": [
+    {
+      "a": "53d118ab569c5b8cfb5761915671890fa028d02f",
+      "b": "f6f4f7e6ffa319a874478aa065e5e2e68f5116d9",
+      "relation": "combined"
+    },
+    {
+      "a": "e75cc5eeae1a0f9c18fcf4a3fd3cd6fac05c5cd0",
+      "b": "f6f4f7e6ffa319a874478aa065e5e2e68f5116d9",
+      "relation": "combined"
+    }
+  ],
+  "files": [
+    "lmskit/rules.py",
+    "tests/test_rules.py"
+  ],
+  "regions": [
+    {
+      "file": "lmskit/rules.py",
+      "function": "waitlist_size"
+    },
+    {
+      "file": "lmskit/rules.py",
+      "function": "scholarship_credit_cap"
+    },
+    {
+      "file": "lmskit/rules.py",
+      "function": "late_penalty_bp"
+    }
+  ],
+  "testing_evidence": "none",
+  "deployment_evidence": "none",
+  "metadata_availability": "squash dropped the cherry-pick trailers",
+  "known_uncertainty": "none",
+  "expected_warnings": [
+    "squashed backport; trailers lost"
+  ],
+  "safe_resolution_constraints": [],
+  "human_review_required": false,
+  "assertions": [
+    {
+      "type": "trailer",
+      "commit": "f6f4f7e6ffa319a874478aa065e5e2e68f5116d9",
+      "expect": "missing"
+    },
+    {
+      "type": "diff_subset",
+      "small": [
+        "53d118ab569c5b8cfb5761915671890fa028d02f",
+        "e75cc5eeae1a0f9c18fcf4a3fd3cd6fac05c5cd0"
+      ],
+      "big": "f6f4f7e6ffa319a874478aa065e5e2e68f5116d9"
+    }
+  ],
+  "id": "19",
+  "sub_entries": [],
+  "patch_ids": {
+    "@S019.t1": "c6f62233f7632c5a6cef79bed948e952105fbaca",
+    "@S019.t2": "a7b362f7b89cb8f2942fcf29aa13215ef6f7329a",
+    "@S019.sq": "0654368b998c89392be2956073115ec848eefd33"
+  },
+  "commit_labels": {
+    "S019.F": "3dd2ea7661a0376da18ca1a7a9ab88bce6250a7d",
+    "S019.b1": "e736f47cf0fe27723d0587200755a59ab65851fa",
+    "S019.b2": "d21b8d902703985b58912533ca71cc1a95c1e35e",
+    "S019.b3": "ebd557efe41f31457f102e7e3ebca06bacc4cd1c",
+    "S019.sq": "f6f4f7e6ffa319a874478aa065e5e2e68f5116d9",
+    "S019.t1": "53d118ab569c5b8cfb5761915671890fa028d02f",
+    "S019.t2": "e75cc5eeae1a0f9c18fcf4a3fd3cd6fac05c5cd0",
+    "S019.t3": "df2adbc584218cd65d41964723a7dc36204e2761"
+  }
+}

@@ -1,0 +1,101 @@
+[
+  {
+    "scenario_id": "S075",
+    "catalog_ids": [
+      75
+    ],
+    "difficulty": 1,
+    "expected_git_outcome": "CONFLICT",
+    "title": "Two different pins for the same dependency"
+  },
+  {
+    "scenario_id": "S062",
+    "catalog_ids": [
+      62
+    ],
+    "difficulty": 2,
+    "expected_git_outcome": "CONFLICT",
+    "title": "Revert of half of a two-part change"
+  },
+  {
+    "scenario_id": "S047",
+    "catalog_ids": [
+      47
+    ],
+    "difficulty": 2,
+    "expected_git_outcome": "CONFLICT",
+    "title": "Repository used with no external database"
+  },
+  {
+    "scenario_id": "S009",
+    "catalog_ids": [
+      9
+    ],
+    "difficulty": 3,
+    "expected_git_outcome": "CONFLICT",
+    "title": "Helper module moved while both sides edit it"
+  },
+  {
+    "scenario_id": "S019",
+    "catalog_ids": [
+      19
+    ],
+    "difficulty": 3,
+    "expected_git_outcome": "CONFLICT",
+    "title": "Backported commits squashed into one"
+  },
+  {
+    "scenario_id": "S023",
+    "catalog_ids": [
+      23
+    ],
+    "difficulty": 3,
+    "expected_git_outcome": "CONFLICT",
+    "title": "Failed run followed by an unrelated commit"
+  },
+  {
+    "scenario_id": "S056",
+    "catalog_ids": [
+      56
+    ],
+    "difficulty": 3,
+    "expected_git_outcome": "EVIDENCE_ONLY",
+    "title": "Commit amended after its test run"
+  },
+  {
+    "scenario_id": "S079",
+    "catalog_ids": [
+      79,
+      83,
+      29
+    ],
+    "difficulty": 4,
+    "expected_git_outcome": "CLEAN_BUT_BROKEN",
+    "title": "Setting renamed while new code reads the old name"
+  },
+  {
+    "scenario_id": "S096",
+    "catalog_ids": [
+      96,
+      75,
+      80
+    ],
+    "difficulty": 4,
+    "expected_git_outcome": "CONFLICT",
+    "title": "Vendored library update versus a local patch"
+  },
+  {
+    "scenario_id": "S084",
+    "catalog_ids": [
+      84,
+      20,
+      13,
+      27,
+      39,
+      22
+    ],
+    "difficulty": 5,
+    "expected_git_outcome": "CONFLICT",
+    "title": "Provenance references that do not resolve to the real origin"
+  }
+]

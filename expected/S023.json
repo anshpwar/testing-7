@@ -1,0 +1,99 @@
+{
+  "scenario_id": "S023",
+  "repo_id": "testing-7",
+  "title": "Failed run followed by an unrelated commit",
+  "difficulty": 3,
+  "primary_catalog_id": 23,
+  "catalog_ids": [
+    23
+  ],
+  "expected_git_outcome": "CONFLICT",
+  "merge_pair": {
+    "base": "scenario/S023/base",
+    "target": "scenario/S023/target",
+    "all_pairs": [
+      [
+        "scenario/S023/base",
+        "scenario/S023/target"
+      ]
+    ],
+    "additional_sides": {}
+  },
+  "fork_commit": "3dd2ea7661a0376da18ca1a7a9ab88bce6250a7d",
+  "expected_conflicted_files": [
+    "lmskit/rules.py"
+  ],
+  "validation_method": "merge",
+  "clone_profile": "full",
+  "branches": [
+    "scenario/S023/base",
+    "scenario/S023/target"
+  ],
+  "original_commits": [
+    "2c7b00608a1944c705c5233c64a32f17fba3896f"
+  ],
+  "derived_commits": [
+    "4f328e3160b75bb7a4f0f186007c70de6da0cbd4"
+  ],
+  "change_relationships": [
+    {
+      "a": "2c7b00608a1944c705c5233c64a32f17fba3896f",
+      "b": "4f328e3160b75bb7a4f0f186007c70de6da0cbd4",
+      "relation": "unrelated"
+    }
+  ],
+  "files": [
+    "lmskit/rules.py",
+    "tests/test_rules.py"
+  ],
+  "regions": [
+    {
+      "file": "lmskit/rules.py",
+      "function": "retry_backoff_s"
+    }
+  ],
+  "testing_evidence": "t1 FAILED; t2 changes an unrelated rule and has no record; tip still fails",
+  "deployment_evidence": "none",
+  "metadata_availability": "full",
+  "known_uncertainty": "none",
+  "expected_warnings": [
+    "failure on t1 still applies to the tip"
+  ],
+  "safe_resolution_constraints": [],
+  "human_review_required": false,
+  "assertions": [
+    {
+      "type": "note",
+      "ref": "ci",
+      "commit": "2c7b00608a1944c705c5233c64a32f17fba3896f",
+      "expect": "present",
+      "fields": {
+        "status": "FAILED"
+      }
+    },
+    {
+      "type": "note",
+      "ref": "ci",
+      "commit": "4f328e3160b75bb7a4f0f186007c70de6da0cbd4",
+      "expect": "absent"
+    },
+    {
+      "type": "real_tests",
+      "commit": "4f328e3160b75bb7a4f0f186007c70de6da0cbd4",
+      "suite": "unit",
+      "expect": "failed"
+    }
+  ],
+  "id": "23",
+  "sub_entries": [],
+  "patch_ids": {
+    "@S023.t1": "9c70fdb7412580ab43117e1f103d65b5d8de655c",
+    "@S023.t2": "4073baaf195fc17c00ac13a967a2789d35538c89"
+  },
+  "commit_labels": {
+    "S023.F": "3dd2ea7661a0376da18ca1a7a9ab88bce6250a7d",
+    "S023.b1": "30d849e2330c94e34c6575170a462b9d6303c3ba",
+    "S023.t1": "2c7b00608a1944c705c5233c64a32f17fba3896f",
+    "S023.t2": "4f328e3160b75bb7a4f0f186007c70de6da0cbd4"
+  }
+}
