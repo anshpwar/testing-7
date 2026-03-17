@@ -1,0 +1,42 @@
+diff --git a/lmskit/rules.py b/lmskit/rules.py
+index 5bda804..e53270f 100644
+--- a/lmskit/rules.py
++++ b/lmskit/rules.py
+@@ -47,12 +47,12 @@ def retry_backoff_s(attempt):
+ def max_job_attempts(priority):
+     """Attempts before a job is declared dead, by priority (1 = highest)."""
+     if priority <= 1:
+-        return 10
++        return 11
+     if priority <= 2:
+-        return 5
++        return 6
+     if priority <= 3:
+-        return 3
+-    return 2
++        return 4
++    return 3
+ 
+ 
+ def reminder_lead_hours(days_to_deadline):
+diff --git a/tests/test_rules.py b/tests/test_rules.py
+index f3293e0..f848641 100644
+--- a/tests/test_rules.py
++++ b/tests/test_rules.py
+@@ -43,11 +43,11 @@ class RuleTests(unittest.TestCase):
+         self.assertEqual(rules.retry_backoff_s(7), 6300)
+ 
+     def test_max_job_attempts(self):
+-        self.assertEqual(rules.max_job_attempts(0), 10)
+-        self.assertEqual(rules.max_job_attempts(1), 10)
+-        self.assertEqual(rules.max_job_attempts(2), 5)
+-        self.assertEqual(rules.max_job_attempts(3), 3)
+-        self.assertEqual(rules.max_job_attempts(4), 2)
++        self.assertEqual(rules.max_job_attempts(0), 11)
++        self.assertEqual(rules.max_job_attempts(1), 11)
++        self.assertEqual(rules.max_job_attempts(2), 6)
++        self.assertEqual(rules.max_job_attempts(3), 4)
++        self.assertEqual(rules.max_job_attempts(4), 3)
+ 
+     def test_reminder_lead_hours(self):
+         self.assertEqual(rules.reminder_lead_hours(0), 2)

@@ -1,0 +1,77 @@
+diff --git a/lmskit/consumer_80.py b/lmskit/consumer_80.py
+new file mode 100644
+index 0000000..d5df7da
+--- /dev/null
++++ b/lmskit/consumer_80.py
+@@ -0,0 +1,8 @@
++"""Consumer added independently of the base-side change (scenario 80)."""
++
++
++from .deps import textfmt
++
++
++def column(text):
++    return textfmt.pad_left(text, 12)
+diff --git a/lmskit/deps/textfmt.py b/lmskit/deps/textfmt.py
+index a79fe1a..176e0ea 100644
+--- a/lmskit/deps/textfmt.py
++++ b/lmskit/deps/textfmt.py
+@@ -1,8 +1,8 @@
+ """textfmt: tiny text formatting helpers (vendored copy, version 1.0.0)."""
+ 
+-__version__ = "2.0.0"
++__version__ = "1.0.0"
+ 
+ 
+-def pad_start(text, width, fill=" "):
++def pad_left(text, width, fill=" "):
+     """Right-align text in a field of the given width."""
+-    return text.rjust(width, fill) if len(text) < width else text
++    return text.rjust(width, fill)[-width:]
+diff --git a/lmskit/pipeline.py b/lmskit/pipeline.py
+index cd48f27..06e70c3 100644
+--- a/lmskit/pipeline.py
++++ b/lmskit/pipeline.py
+@@ -8,5 +8,5 @@ def run_pipeline(records, currency="USD"):
+     lines = []
+     for rec in records:
+         summary = contract.build_summary(rec, currency)
+-        lines.append(textfmt.pad_start(contract.describe(summary), 40))
++        lines.append(textfmt.pad_left(contract.describe(summary), 40))
+     return {"retries": retries, "lines": lines}
+diff --git a/requirements.txt b/requirements.txt
+index 5a4aa33..84698a0 100644
+--- a/requirements.txt
++++ b/requirements.txt
+@@ -1,2 +1,2 @@
+ Django==6.1.2
+-pytest==9.1.0
++pytest==9.3.0
+diff --git a/tests/test_consumer_80.py b/tests/test_consumer_80.py
+new file mode 100644
+index 0000000..a1d2cf9
+--- /dev/null
++++ b/tests/test_consumer_80.py
+@@ -0,0 +1,8 @@
++import unittest
++
++from lmskit import consumer_80
++
++
++class ColumnTests(unittest.TestCase):
++    def test_column(self):
++        self.assertEqual(consumer_80.column("ab"), "          ab")
+diff --git a/tests/test_deps.py b/tests/test_deps.py
+index 32ece87..12abd6b 100644
+--- a/tests/test_deps.py
++++ b/tests/test_deps.py
+@@ -5,7 +5,7 @@ from lmskit.deps import textfmt
+ 
+ class TextfmtTests(unittest.TestCase):
+     def test_pad_left(self):
+-        self.assertEqual(textfmt.pad_start("ab", 5), "   ab")
++        self.assertEqual(textfmt.pad_left("ab", 5), "   ab")
+ 
+     def test_pad_left_fill(self):
+-        self.assertEqual(textfmt.pad_start("7", 3, "0"), "007")
++        self.assertEqual(textfmt.pad_left("7", 3, "0"), "007")

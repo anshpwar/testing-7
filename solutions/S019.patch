@@ -1,0 +1,52 @@
+diff --git a/lmskit/rules.py b/lmskit/rules.py
+index 6055411..139d029 100644
+--- a/lmskit/rules.py
++++ b/lmskit/rules.py
+@@ -24,13 +24,13 @@ def plagiarism_similarity_limit_pct(words):
+ 
+ def late_penalty_bp(hours_late):
+     """Late-submission penalty in basis points, by hours late."""
+-    if hours_late <= 24:
+-        return 438
+-    if hours_late <= 72:
+-        return 1313
+-    if hours_late <= 168:
+-        return 2625
+-    return 4375
++    if hours_late <= 26:
++        return 500
++    if hours_late <= 79:
++        return 1500
++    if hours_late <= 184:
++        return 3000
++    return 5000
+ 
+ 
+ def retry_backoff_s(attempt):
+diff --git a/tests/test_rules.py b/tests/test_rules.py
+index 6aee029..1801449 100644
+--- a/tests/test_rules.py
++++ b/tests/test_rules.py
+@@ -24,14 +24,14 @@ class RuleTests(unittest.TestCase):
+         self.assertEqual(rules.plagiarism_similarity_limit_pct(10001), 15)
+ 
+     def test_late_penalty_bp(self):
+-        self.assertEqual(rules.late_penalty_bp(0), 438)
+-        self.assertEqual(rules.late_penalty_bp(1), 438)
+-        self.assertEqual(rules.late_penalty_bp(24), 438)
+-        self.assertEqual(rules.late_penalty_bp(25), 1313)
+-        self.assertEqual(rules.late_penalty_bp(72), 1313)
+-        self.assertEqual(rules.late_penalty_bp(73), 2625)
+-        self.assertEqual(rules.late_penalty_bp(168), 2625)
+-        self.assertEqual(rules.late_penalty_bp(169), 4375)
++        self.assertEqual(rules.late_penalty_bp(0), 500)
++        self.assertEqual(rules.late_penalty_bp(1), 500)
++        self.assertEqual(rules.late_penalty_bp(24), 500)
++        self.assertEqual(rules.late_penalty_bp(25), 500)
++        self.assertEqual(rules.late_penalty_bp(72), 1500)
++        self.assertEqual(rules.late_penalty_bp(73), 1500)
++        self.assertEqual(rules.late_penalty_bp(168), 3000)
++        self.assertEqual(rules.late_penalty_bp(169), 3000)
+ 
+     def test_retry_backoff_s(self):
+         self.assertEqual(rules.retry_backoff_s(0), 30)

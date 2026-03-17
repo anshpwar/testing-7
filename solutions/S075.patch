@@ -1,0 +1,8 @@
+diff --git a/requirements.txt b/requirements.txt
+index 5a4aa33..84698a0 100644
+--- a/requirements.txt
++++ b/requirements.txt
+@@ -1,2 +1,2 @@
+ Django==6.1.2
+-pytest==9.1.0
++pytest==9.3.0
